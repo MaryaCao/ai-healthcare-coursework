@@ -1,139 +1,148 @@
 # ai-healthcare-coursework
 Portfolio of AI and healthcare-related coursework, including Python-based simulation modelling, medical imaging (ultrasound), and data analysis projects. Prepared for research and internship applications.
-# AI & Healthcare Coursework Portfolio
 
-This repository contains selected coursework and projects from my **MSc Natural Sciences (Neuroscience, Psychology & Medical Physics)** degree at **University College London (UCL)**.  
-It highlights my interests in **AI for healthcare**, **medical imaging**, and **computational modelling**, with a focus on clinically relevant applications.
+# AI & Biomedical Coursework Portfolio  
+**Marya Cao | UCL MSci Natural Sciences (Neuroscience, Psychology & Medical Physics)**
 
----
+This repository contains selected academic coursework demonstrating my experience across **computational modelling**, **medical imaging**, and **biomedical research**, with applications relevant to **AI in healthcare**, **medical imaging**, and **data-driven analysis**.
 
-# AI Healthcare Coursework – Virology Modelling Project
-
-This repository contains a computational virology project developed as part of undergraduate coursework at University College London. The project implements a **cellular automata–based epidemic model** to simulate infectious disease spread and investigate the impact of quarantine and recovery dynamics on epidemic outcomes.
-
-The work demonstrates skills in **Python-based modelling, experimental design, parameter sensitivity analysis, and interpretation of epidemiological data**, with a focus on healthcare-relevant applications.
-
----
-
-## Project Overview
-
-The model extends a classical SEIR framework into a **SEIQRH cellular automaton**, capturing spatial interactions between individuals and the effects of public health interventions such as quarantine and recovery support.
-
-- **Framework:** Cellular automata epidemic model  
-- **Grid size:** 6 × 6 (36 individuals)  
-- **Neighbourhood:** Moore neighbourhood (8 adjacent cells)  
-- **Time resolution:** 1 day per timestep  
-- **Simulation length:** 60 days  
-
-### Health States Modelled
-- **S** – Susceptible  
-- **E** – Exposed  
-- **I** – Infected (symptomatic)  
-- **Q** – Quarantined  
-- **H** – Healing (self-recovery)  
-- **R** – Recovered  
-
-Each cell represents an individual whose state updates probabilistically based on neighbouring cells and epidemiologically informed transition parameters.
+The projects included highlight my ability to:
+- Apply quantitative and computational methods to real-world biomedical problems  
+- Analyse and interpret medical imaging data  
+- Critically evaluate disease mechanisms with translational relevance  
+- Communicate complex scientific concepts clearly and rigorously  
 
 ---
 
-## Model Logic
+## 📊 Project 1: Computational Modelling of Viral Infection Dynamics (Virology)
 
-At each timestep, every cell in the grid is updated according to its current state and the states of its immediate neighbours.
+### Overview  
+This project implements a **Python-based cellular automaton epidemic model** to investigate viral transmission, quarantine, and recovery dynamics at a population level. A modified **SEIQ(H)R framework** was used to capture realistic infection pathways, including quarantine and self-healing states.
 
-Key transition mechanisms include:
-- **Infection:** Susceptible cells transition to Exposed based on contact with infected or healing neighbours
-- **Disease progression:** Exposed cells transition to symptomatic infection after an incubation period
-- **Intervention dynamics:** Infected individuals may enter quarantine or self-heal
-- **Recovery:** Individuals recover either through quarantine-supported recovery or natural healing
-
-The simulation tracks population-level trends by counting the number of individuals in each state at every timestep.
+Each grid cell represents an individual, with probabilistic state transitions informed by epidemiological literature. The model simulates disease spread over discrete time steps and evaluates how public health interventions influence epidemic outcomes.
 
 ---
 
-## Parameterisation
-
-Model parameters were informed by epidemiological literature, including WHO reports and peer-reviewed studies.
-
-Key parameters include:
-- **SE:** Probability of infection after exposure  
-- **EI:** Incubation transition probability (E → I)  
-- **IQ:** Quarantine rate (I → Q), varied across cities  
-- **HR:** Healing recovery rate (H → R)  
-- **QR:** Quarantine recovery rate (Q → R), varied experimentally  
-
-Quarantine rates were selected to reflect real-world differences (e.g. London, Wuhan, New York), while recovery rates were varied to assess healthcare resource impact.
+### Model Features  
+- Discrete-time cellular automaton framework  
+- Probabilistic state transitions based on literature-derived parameters  
+- Explicit modelling of quarantine, recovery, and self-healing pathways  
+- Spatial transmission via local neighbourhood interactions  
+- Parameter sweeps and averaging across multiple simulation runs  
 
 ---
 
-## Experiments Conducted
-
-Two main experimental analyses were performed:
-
-### 1. Quarantine Recovery Rate (QR) Sensitivity
-- QR values tested: **0.1, 0.2, 0.3**
-- Other parameters held constant
-- Objective: assess how post-quarantine care affects recovery speed and epidemic resolution
-
-### 2. Quarantine Rate (IQ) Comparison
-- IQ values reflecting different city-level responses
-- Objective: evaluate the effect of isolation timing on transmission dynamics
-
-For each parameter configuration:
-- **100 independent simulation runs** were performed
-- Results were averaged to ensure robustness and reduce stochastic noise
+### Experimental Design  
+- Simulated **60-day epidemic trajectories**  
+- Performed **100 independent simulation runs per parameter set** to reduce stochastic noise  
+- Investigated the impact of:
+  - **Quarantine rate (IQ)**  
+  - **Quarantine recovery rate (QR)**  
+- Compared epidemic peaks, recovery timing, and infection duration across scenarios  
 
 ---
 
-## Key Findings
-
-- Higher quarantine recovery rates led to **earlier and faster population recovery**
-- Increased QR reduced the **peak size and duration of symptomatic infection**
-- Quarantine effectiveness significantly influenced epidemic duration and burden
-- Model behaviour aligned with epidemiological expectations, supporting the validity of the chosen parameters
-
-These results highlight the importance of recovery support and healthcare resources alongside isolation policies.
+### Key Findings  
+- Higher **QR values** resulted in earlier and more rapid recovery  
+- Increased quarantine effectiveness reduced symptomatic peaks  
+- The model reproduced realistic epidemic dynamics consistent with public health expectations  
 
 ---
 
-## Visual Outputs
-
-The project includes:
-- Time-series plots of Susceptible, Sick, and Recovered populations
-- State-level breakdowns of infected subcategories (E, I, Q, H)
-- Spatial visualisations showing disease progression across the grid
-
-All figures were generated using **Python (NumPy, Matplotlib)**.
+### Skills Demonstrated  
+- Python programming and simulation design  
+- Data aggregation, visualisation, and performance evaluation  
+- Parameter sensitivity analysis  
+- Scientific reasoning and model validation  
 
 ---
 
-## Tools & Technologies
+## 📡 Project 2: Biomedical Ultrasound Imaging Coursework
 
-- **Programming language:** Python  
-- **Libraries:** NumPy, Matplotlib  
-- **Methods:** Simulation modelling, parameter sensitivity analysis, data visualisation  
-
----
-
-## Learning Outcomes
-
-This project strengthened skills in:
-- Computational modelling of healthcare systems
-- Translating biological assumptions into algorithmic rules
-- Designing and analysing simulation experiments
-- Interpreting results in a clinically and epidemiologically meaningful way
-- Scientific communication through figures and structured reporting
+### Overview  
+This coursework explores the **physics and system-level controls of clinical diagnostic ultrasound imaging** through hands-on experiments using a clinical ultrasound machine. The focus was on understanding how acquisition parameters influence **image quality, resolution, penetration depth, and diagnostic interpretability**.
 
 ---
 
-## Notes
+### Topics Investigated  
 
-This repository is intended for **academic and portfolio demonstration purposes**. The model is simplified and does not represent real-world clinical predictions.
+#### Time Gain Compensation (TGC)  
+- Analysed depth-dependent attenuation and manual gain correction  
+- Optimised near-field and far-field brightness for anatomical clarity  
+- Evaluated diagnostic consequences of incorrect TGC settings  
+
+#### Dynamic Range  
+- Compared images acquired at 50 dB, 70 dB, and 90 dB  
+- Assessed contrast versus soft tissue detail trade-offs  
+- Demonstrated loss of subtle features at low dynamic ranges  
+
+#### Frequency & Harmonic Imaging  
+- Compared imaging at 6.6 MHz, 10 MHz, 14 MHz, and harmonic modes  
+- Evaluated resolution–penetration trade-offs  
+- Observed improved contrast and reduced artefacts in harmonic imaging  
+
+#### Transmit Focusing & Frame Rate  
+- Investigated multi-transmit focusing and focal depth alignment  
+- Analysed frame rate reduction with increased focal zones  
+- Demonstrated how focal depth controls lateral resolution  
+
+#### Spatial Resolution Analysis  
+- Measured axial and lateral resolution using wire phantoms  
+- Applied diffraction theory to explain depth-dependent resolution loss  
 
 ---
 
-## Author
+### Skills Demonstrated  
+- Clinical ultrasound system operation  
+- Medical image interpretation and optimisation  
+- Quantitative resolution analysis  
+- Linking physical imaging principles to clinical outcomes  
 
-**Marya Cao**  
-MSc Natural Sciences (Neuroscience, Psychology & Medical Physics)  
-University College London  
+---
+
+### Relevance to AI & Medical Imaging  
+This coursework provides a strong foundation for:
+- Medical image preprocessing  
+- AI-based segmentation and classification  
+- Understanding artefacts and limitations in real-world ultrasound datasets  
+
+---
+
+## 🧠 Project 3: Literature Review — Neuroinflammation and Tau Pathology in Alzheimer’s Disease
+
+### Overview  
+This literature review examines **tau protein dysregulation** as a central mechanism in Alzheimer’s disease, with a focus on phosphorylation-driven misfolding and aggregation processes relevant to neurodegeneration.
+
+---
+
+### Key Mechanistic Insights  
+
+Under physiological conditions, tau is a highly soluble, intrinsically disordered microtubule-associated protein that stabilises axonal microtubules. Its conformational flexibility is tightly regulated by a balance between phosphorylation and dephosphorylation, mediated primarily by kinases such as **GSK3β** and **CDK5**, and the phosphatase **PP2A**.
+
+Disruption of this equilibrium represents a critical early event in Alzheimer’s disease. Aberrant phosphorylation at multiple serine, threonine, and tyrosine residues reduces tau’s affinity for microtubules, promoting its detachment into the cytosol and increasing conformational instability.
+
+As tau becomes increasingly hyperphosphorylated, it adopts aggregation-prone conformations that favour self-association, leading to the formation of early misfolded intermediates. These intermediates act as **seeding-competent species**, capable of templating the misfolding of native tau in a prion-like manner. This seed formation represents the **rate-limiting step** in tau aggregation and establishes the foundation for downstream pathological amplification.
+
+---
+
+### Skills Demonstrated  
+- Critical evaluation of biomedical literature  
+- Mechanistic reasoning in neurodegenerative disease  
+- Translational thinking linking molecular pathology to therapeutic relevance  
+- Clear scientific writing and synthesis  
+
+---
+
+## 🔬 Overall Skill Set Highlighted  
+- Python-based modelling and data analysis  
+- Medical imaging fundamentals (ultrasound)  
+- Experimental design and parameter analysis  
+- Biomedical literature synthesis  
+- Interdisciplinary AI–healthcare research foundations  
+
+---
+
+## 📌 Future Directions  
+- Extending epidemic models with real-world datasets  
+- Applying deep learning methods to ultrasound image segmentation  
+- Integrating physics-based understanding into AI medical imaging pipelines  
